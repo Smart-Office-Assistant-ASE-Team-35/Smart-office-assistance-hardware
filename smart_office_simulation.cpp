@@ -1,4 +1,3 @@
-int value;
 int redled = 2;
 int greenled = 3;
 int buzzer = 4;
@@ -11,14 +10,12 @@ pinMode(redled, OUTPUT);
 pinMode(greenled,OUTPUT);
 pinMode(buzzer,OUTPUT);
 pinMode(sensor,INPUT);
-Serial.begin(9600);
 }
 
 void loop()
 {
   int analogValue = analogRead(sensor);
   Serial.print(analogValue);
-  
   if(analogValue>sensorThresh)
   {
     digitalWrite(redled,HIGH);
@@ -31,6 +28,4 @@ void loop()
     digitalWrite(greenled,HIGH);
     digitalWrite(redled,LOW);
     noTone(buzzer);
-    delay(1000);
-  }    
 }
